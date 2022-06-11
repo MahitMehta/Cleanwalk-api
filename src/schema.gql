@@ -2,6 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AggregatedPost {
+  description: String!
+  location: Point!
+  user: User!
+  userId: String!
+}
+
 type AggregatedUser {
   _id: ID!
   accessToken: String
@@ -12,6 +19,13 @@ type AggregatedUser {
   pass: String!
   roles: [String!]!
   status: String!
+}
+
+input CreatePostDTO {
+  description: String!
+  imageURL: String
+  latitude: Float!
+  longitude: Float!
 }
 
 input CreateUserDTO {
@@ -25,10 +39,34 @@ input LoginUserDTO {
 }
 
 type Mutation {
+  createPost(input: CreatePostDTO!): Post!
   createUser(input: CreateUserDTO!): AggregatedUser!
   loginUser(input: LoginUserDTO!): AggregatedUser!
 }
 
+type Point {
+  coordinates: [Float!]!
+  type: String!
+}
+
+type Post {
+  description: String!
+  location: Point!
+  userId: String!
+}
+
 type Query {
+  getPosts: [AggregatedPost!]!
   getRoot: String!
+}
+
+type User {
+  _id: ID!
+  email: String!
+  firstName: String
+  lastName: String
+  organizationId: ID!
+  pass: String!
+  roles: [String!]!
+  status: String!
 }

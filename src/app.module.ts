@@ -7,6 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { PostsModule } from './posts/posts.modules';
 const { join } = require('path');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -30,7 +31,8 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'develop
     }),
     MongooseModule.forRoot(config.mongodb.uri, config.mongodb.options),
     AuthModule,
-    UserModule
+    UserModule,
+    PostsModule,
   ],
   providers: [ AppResolver ],
 })
