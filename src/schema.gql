@@ -2,6 +2,33 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AggregatedUser {
+  _id: ID!
+  accessToken: String
+  email: String!
+  firstName: String
+  lastName: String
+  organizationId: ID!
+  pass: String!
+  roles: [String!]!
+  status: String!
+}
+
+input CreateUserDTO {
+  email: String!
+  pass: String!
+}
+
+input LoginUserDTO {
+  email: String!
+  pass: String!
+}
+
+type Mutation {
+  createUser(input: CreateUserDTO!): AggregatedUser!
+  loginUser(input: LoginUserDTO!): AggregatedUser!
+}
+
 type Query {
   getRoot: String!
 }
