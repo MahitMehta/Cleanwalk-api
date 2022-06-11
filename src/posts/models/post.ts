@@ -19,6 +19,10 @@ export class Post {
     location: Point
     @Field(() => String)
     userId: string;
+    @Field(() => Date)
+    createdAt: Date
+    @Field(() => Date)
+    updatedAt: Date;
 }
 
 @ObjectType()

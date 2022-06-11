@@ -9,6 +9,8 @@ const PostSchema = new mongoose.Schema({
     description: { type: String, required: false, default: "" },
     location: { type: PointSchema, required: true },
     userId: { type: mongoose.Types.ObjectId, required: true }
+}, {
+    timestamps: true,
 })
 
 PostSchema.index({ location: "2dsphere" })

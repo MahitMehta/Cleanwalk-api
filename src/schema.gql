@@ -3,8 +3,10 @@
 # ------------------------------------------------------
 
 type AggregatedPost {
+  createdAt: DateTime!
   description: String!
   location: Point!
+  updatedAt: DateTime!
   user: User!
   userId: String!
 }
@@ -33,6 +35,11 @@ input CreateUserDTO {
   pass: String!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 input LoginUserDTO {
   email: String!
   pass: String!
@@ -50,8 +57,10 @@ type Point {
 }
 
 type Post {
+  createdAt: DateTime!
   description: String!
   location: Point!
+  updatedAt: DateTime!
   userId: String!
 }
 

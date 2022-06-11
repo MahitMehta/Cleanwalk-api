@@ -23,6 +23,11 @@ export class PostsRepository {
             },
             {
                 $unwind: { path: "$user", preserveNullAndEmptyArrays: true }
+            },
+            {
+                $sort: {
+                    updatedAt: -1,
+                }
             }
         ])
         return res; 
