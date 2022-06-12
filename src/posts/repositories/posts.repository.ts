@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model  } from "mongoose";
-import { CreatePostDTO } from "./dtos/createPost.dto";
-import type { IPostModel} from "./interfaces/post.interface";
+import { CreatePostDTO } from "../dtos/createPost.dto";
+import type { IPostModel} from "../interfaces/post.interface";
 
 @Injectable()
 export class PostsRepository {
@@ -39,7 +39,7 @@ export class PostsRepository {
             userId,
             location: {
                 type: "Point",
-                coordinates: [ latitude, longitude ]
+                coordinates: [ longitude, latitude ]
             }
         });
     }

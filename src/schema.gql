@@ -48,6 +48,7 @@ input LoginUserDTO {
 type Mutation {
   createPost(input: CreatePostDTO!): Post!
   createUser(input: CreateUserDTO!): AggregatedUser!
+  likePost(postId: String!): Boolean!
   loginUser(input: LoginUserDTO!): AggregatedUser!
 }
 

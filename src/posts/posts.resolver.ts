@@ -18,6 +18,13 @@ export class PostResolver {
         return await this.postsService.createPost(input, userId);
     }
 
+    @UseGuards(AuthGuard)
+    @Mutation(() => Boolean)
+    public async likePost(@Args("postId") postId : string, @UserId() userId){
+        await this.postsService.likedPost(postId, userId);
+        return true;
+    }
+
     @Query(() => [ AggregatedPost ])
     public async getPosts() {
         return await this.postsService.getPosts();
